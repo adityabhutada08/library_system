@@ -1,10 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Author List</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        header h1 {
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #FFD700;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        main h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        ul.author-list {
+            list-style-type: disc;
+            padding: 0;
+        }
+
+        ul.author-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .pagination a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .pagination a:hover {
+            color: #FFD700;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            main h2 {
+                font-size: 1.5rem;
+            }
+
+            ul.author-list li {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <h1>Authors</h1>
@@ -19,16 +137,19 @@
     </header>
     <main>
         <h2>List of Authors</h2>
-        <ul>
+        <ul class="author-list">
             {% for author in authors %}
                 <li>{{ author.name }} - {{ author.email }} - {{ author.bio }}</li>
+            {% empty %}
+                <li>No authors found.</li>
             {% endfor %}
         </ul>
-        <div>
+        <div class="pagination">
             {% for i in authors.paginator.page_range %}
                 <a href="?page={{ i }}">{{ i }}</a>
             {% endfor %}
         </div>
     </main>
 </body>
+
 </html>
