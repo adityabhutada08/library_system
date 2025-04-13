@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library System</title>
+    <style>
+        body { font-family: Arial; margin: 30px; }
+        .nav a { margin-right: 15px; }
+        .container { margin-top: 20px; }
+        .pagination { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="{% url 'add-author' %}">Add Author</a>
+        <a href="{% url 'add-book' %}">Add Book</a>
+        <a href="{% url 'add-borrow-record' %}">Add Borrow Record</a> |
+        <a href="{% url 'list-authors' %}">View Authors</a>
+        <a href="{% url 'list-books' %}">View Books</a>
+        <a href="{% url 'list-borrow-records' %}">View Borrow Records</a>
+    </div>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
