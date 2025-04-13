@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library System</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Library System</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'author_list' %}">Authors</a></li>
+                <li><a href="{% url 'book_list' %}">Books</a></li>
+                <li><a href="{% url 'borrow_record_list' %}">Borrow Records</a></li>
+                <li><a href="{% url 'export_excel' %}">Export Data</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Home Page</h2>
+        <p>Welcome to the Online Library System</p>
+    </main>
+</body>
+</html>

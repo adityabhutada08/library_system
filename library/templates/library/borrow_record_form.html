@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Borrow Record</title>
+</head>
+<body>
+    <header>
+        <h1>Create a New Borrow Record</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'borrow_record_list' %}">Borrow Record List</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Borrow Record Form</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save Borrow Record</button>
+        </form>
+    </main>
+</body>
+</html>

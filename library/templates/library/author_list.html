@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author List</title>
+</head>
+<body>
+    <header>
+        <h1>Authors</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'add_author' %}">Add New Author</a></li>
+                <li><a href="{% url 'book_list' %}">Books</a></li>
+                <li><a href="{% url 'borrow_record_list' %}">Borrow Records</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>List of Authors</h2>
+        <ul>
+            {% for author in authors %}
+                <li>{{ author.name }} - {{ author.email }} - {{ author.bio }}</li>
+            {% endfor %}
+        </ul>
+        <div>
+            {% for i in authors.paginator.page_range %}
+                <a href="?page={{ i }}">{{ i }}</a>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>
